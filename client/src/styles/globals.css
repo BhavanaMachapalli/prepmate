@@ -1,0 +1,28 @@
+:root {
+  --primary: #0A779A;
+  --primary-hover: #086684;
+
+  --background: #F8FAFC;
+  --white: #FFFFFF;
+
+  --text-dark: #111827;
+  --text-light: #6B7280;
+
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 15px 35px rgba(10, 119, 154, 0.2);
+
+  --border-radius: 15px;
+
+  --transition: all 0.3s ease;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--background);
+  color: var(--text-dark);
+}
+
+html {
+  scroll-behavior: smooth;
+}
