@@ -1,0 +1,137 @@
+.register-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#F8FAFC;
+    padding:40px;
+}
+
+.register-container{
+    width:1100px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+
+.register-left{
+    padding:60px;
+}
+
+.register-left h1{
+    font-size:2.3rem;
+    margin-bottom:10px;
+    color:#111827;
+}
+
+.register-left p{
+    color:#6B7280;
+    margin-bottom:35px;
+}
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:22px;
+}
+
+.input-group label{
+    margin-bottom:8px;
+    font-weight:600;
+    text-align:left;
+}
+
+.input-group input{
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:1rem;
+    outline:none;
+}
+
+.input-group input:focus{
+    border-color:#0A779A;
+}
+
+.password-container{
+    position:relative;
+}
+
+.password-container input{
+    width:100%;
+    box-sizing:border-box;
+    padding-right:50px;
+}
+
+.toggle-password{
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:20px;
+    user-select:none;
+}
+
+.register-btn{
+    width:100%;
+    padding:16px;
+    background:#0A779A;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:1rem;
+    cursor:pointer;
+    margin-top:15px;
+    transition:0.3s;
+}
+
+.register-btn:hover{
+    background:#08637f;
+    transform:translateY(-2px);
+}
+
+.bottom-text{
+    margin-top:25px;
+    text-align:center;
+}
+
+.bottom-text a{
+    color:#0A779A;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.bottom-text a:hover{
+    text-decoration:underline;
+}
+
+.register-right{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#eef7fa;
+}
+
+.register-right img{
+    width:80%;
+}
+
+@media(max-width:900px){
+
+.register-container{
+grid-template-columns:1fr;
+}
+
+.register-right{
+display:none;
+}
+
+.register-left{
+padding:40px;
+}
+
+}

@@ -1,6 +1,9 @@
+import { useState } from "react";
 import "../styles/Login.css";
+import { Link } from "react-router-dom";
 
 function Login() {
+    const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="login-page">
 
@@ -26,10 +29,19 @@ function Login() {
 
             <div className="input-group">
               <label>Password</label>
-              <input
-                type="password"
-                placeholder="Enter your password"
-              />
+              <div className="password-container">
+  <input
+    type={showPassword ? "text" : "password"}
+    placeholder="Enter your password"
+  />
+
+  <span
+    className="toggle-password"
+    onClick={() => setShowPassword(!showPassword)}
+  >
+    {showPassword ? "🙈" : "👁️"}
+  </span>
+</div>
             </div>
 
             <button type="submit" className="login-btn">
@@ -40,7 +52,7 @@ function Login() {
 
           <p className="bottom-text">
             Don't have an account?
-            <span> Register</span>
+            <Link to="/register">Register</Link>
           </p>
 
         </div>

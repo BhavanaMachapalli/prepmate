@@ -55,6 +55,26 @@
     border-color:#0A779A;
 }
 
+.password-container {
+    position: relative;
+}
+
+.password-container input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 50px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+}
+
 .login-btn{
     width:100%;
     padding:16px;
