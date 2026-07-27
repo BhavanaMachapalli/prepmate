@@ -1,3 +1,4 @@
+import { verifyToken } from "./middleware/authMiddleware.js";
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -28,8 +29,15 @@ pool
   .catch((err) => {
     console.log("❌ Database Error:", err.message);
   });
+app.get("/api/dashboard", verifyToken, (req, res) => {
+  res.json({
+    message: "Welcome to PrepMate Dashboard!",
+    user: req.user,
+  });
+});
 
 // Start Server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
