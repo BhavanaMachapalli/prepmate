@@ -1,203 +1,213 @@
-# 🎯 PrepMate - AI Mock Interview Platform
+# PrepMate – Mock Interview Preparation Platform
 
-PrepMate is a full-stack web application that helps students prepare for technical interviews through AI-powered mock interviews, performance tracking, and personalized feedback.
+PrepMate is a full-stack web application designed to help students prepare for technical interviews through topic-based mock interviews. It provides a platform where users can practice interview questions based on their selected topics and difficulty levels, while keeping track of their interview activities and progress.
 
-> 🚧 This project is currently under development.
+## ✨ Features
 
+- **User Authentication:** Secure user registration and login with password hashing and JWT-based authentication.
+- **Personalized Dashboard:** A dashboard that welcomes users and provides access to interview preparation features.
+- **Topic-Based Practice:** Practice interview questions based on selected topics.
+- **Difficulty Selection:** Choose questions according to different difficulty levels.
+- **Randomized Questions:** Dynamically retrieve randomized questions based on the selected topic and difficulty.
+- **Interview History:** View previously conducted interviews.
+- **Interview Details:** Access individual interview records and their details.
+- **Protected Routes:** Restrict access to authenticated user pages.
 
-## ✨ Features Completed
+## 🛠️ Tech Stack
 
-### 🔐 Authentication
-- User Registration
-- User Login
-- Secure Password Hashing using bcrypt
-- JWT Authentication
-- Protected Routes
-- Duplicate Email Validation
+| Category | Technologies |
+|---|---|
+| Frontend | React.js, Vite |
+| Backend | Node.js, Express.js |
+| Database | PostgreSQL |
+| Authentication | JWT, bcrypt |
+| Styling | CSS |
+| API | RESTful APIs |
+| Development Tools | VS Code, Postman, pgAdmin |
 
-### 💻 Frontend
-- Responsive Landing Page
-- Hero Section
-- Features Section
-- Statistics Section
-- Login Page
-- Register Page
-- React Router Navigation
+## 📸 Screenshots
 
-### ⚙ Backend
-- Express.js REST API
-- PostgreSQL Database
-- MVC Architecture
-- Environment Variables using dotenv
+### 1. Landing Page
 
+![Landing Page](screenshots/landing_page.png)
 
-## 🚀 Upcoming Features
+### 2. User Authentication
 
-- Dashboard
-- AI Mock Interview Generator
-- Interview Session
-- Interview History
-- AI Feedback & Evaluation
-- Performance Analytics
-- User Profile
-- Dark Mode
-- Deployment
+**Login Page**
 
+![Login Page](screenshots/login.png)
 
-## 🛠 Tech Stack
+**Registration Page**
 
-### Frontend
-- React.js
-- React Router
-- CSS3
-- Vite
+![Registration Page](screenshots/register.png)
 
-### Backend
-- Node.js
-- Express.js
-- PostgreSQL
+### 3. Dashboard
 
-### Authentication
-- bcrypt
-- JSON Web Token (JWT)
+![Dashboard](screenshots/dashboard.png)
 
-### Tools
-- Postman
-- Git & GitHub
-- VS Code
+### 4. Interview Practice
+
+![Interview Page](screenshots/interview.png)
+
+### 5. Interview History
+
+![Interview History](screenshots/interview_history.png)
 
 
+## 🏗️ System Architecture
+
+PrepMate follows a client-server architecture in which the React frontend communicates with the Express.js backend through REST APIs. The backend handles application logic, authentication, and database operations using PostgreSQL.
+
+```mermaid
+flowchart TD
+    A[User] --> B[React.js Frontend]
+    B -->|HTTP Requests| C[Express.js REST API]
+    C --> D[Authentication Middleware]
+    D --> E[Backend Logic - Node.js]
+    E -->|Database Queries| F[(PostgreSQL)]
+    F --> E
+    E --> C
+    C -->|JSON Response| B
+    B --> A
+```
 
 ## 📂 Project Structure
 
-```
-prepmate/
+```text
+PrepMate/
 │
-├── client/
-│   ├── src/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   └── package.json
+├── client/                  # React frontend
 │
-├── server/
-│   ├── config/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── .env
-│   ├── server.js
-│   └── package.json
+├── server/                  # Node.js and Express backend
+│
+├── screenshots/             # Application screenshots
+│   ├── dashboard.png
+│   ├── interview_history.png
+│   ├── interview.png
+│   ├── landing_page.png
+│   ├── login.png
+│   └── register.png
 │
 └── README.md
 ```
 
+## ⚙️ Getting Started
 
-## 🔑 Environment Variables
+Follow these steps to run PrepMate locally.
 
-Create a `.env` file inside the `server` folder.
+### Prerequisites
+
+- Node.js
+- npm
+- PostgreSQL
+- Git
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/BhavanaMachapalli/prepmate.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd prepmate
+```
+
+### 2. Set Up the Backend
+
+Navigate to the server directory:
+
+```bash
+cd server
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` file inside the server directory and configure the required environment variables:
 
 ```env
 PORT=5000
 
-DB_USER=your_postgres_username
 DB_HOST=localhost
-DB_NAME=prepmate
-DB_PASSWORD=your_postgres_password
 DB_PORT=5432
+DB_USER=your_postgres_username
+DB_PASSWORD=your_postgres_password
+DB_NAME=prepmate
 
 JWT_SECRET=your_secret_key
 ```
 
+### 3. Set Up the Database
 
-## ⚡ Installation
+1. Open PostgreSQL using pgAdmin or the PostgreSQL command line.
+2. Create a database named `prepmate`.
+3. Create the required tables using your database schema.
 
-### Clone the repository
+### 4. Start the Backend Server
 
 ```bash
-git clone https://github.com/your-username/prepmate.git
+npm run dev
 ```
 
-### Client
+The backend server runs at:
+
+`http://localhost:5000`
+
+### 5. Set Up the Frontend
+
+Open another terminal and navigate to the client directory:
 
 ```bash
 cd client
-npm install
-npm run dev
 ```
 
-### Server
+Install the dependencies:
 
 ```bash
-cd server
 npm install
+```
+
+Start the frontend development server:
+
+```bash
 npm run dev
 ```
 
-## 📡 API Endpoints
+The frontend runs at:
 
-### Authentication
+`http://localhost:5173`
 
-| Method | Endpoint | Description |
-|---------|----------|-------------|
-| POST | `/api/auth/register` | Register a new user |
-| POST | `/api/auth/login` | Login user |
-| GET | `/api/dashboard` | Protected route using JWT |
+## 🔄 Application Workflow
 
-## 🔒 Authentication Flow
+1. Users register for an account or log in using their credentials.
+2. Authenticated users are redirected to their personalized dashboard.
+3. Users select an interview topic and difficulty level.
+4. The backend retrieves randomized questions matching the selected criteria.
+5. Users can access their interview history and view individual interview records.
 
-```
-Register
-      │
-      ▼
-Password Hashing (bcrypt)
-      │
-      ▼
-Store User in PostgreSQL
-      │
-      ▼
-Login
-      │
-      ▼
-Verify Password
-      │
-      ▼
-Generate JWT Token
-      │
-      ▼
-Access Protected Routes
-```
+## 🚀 Future Enhancements
 
-## 📸 Current Progress
+- Implement automated interview evaluation and scoring.
+- Introduce detailed performance analytics.
+- Provide personalized feedback and improvement suggestions.
+- Enhance user profile management.
+- Expand the question bank with additional topics and categories.
 
-- ✅ Landing Page
-- ✅ Login & Register UI
-- ✅ Backend Authentication
-- ✅ PostgreSQL Integration
-- ✅ JWT Authentication
-- 🔄 Dashboard (In Progress)
-- 🔄 AI Interview Module (Upcoming)
-
-
-## 🌟 Learning Highlights
-
-This project helped me gain hands-on experience with:
-
-- React.js
-- Express.js
-- PostgreSQL
-- REST APIs
-- JWT Authentication
-- Password Hashing with bcrypt
-- Protected Routes
-- Git & GitHub Workflow
-
-
-## 👩‍💻 Author
+## 👩‍💻 Developer
 
 **Bhavana Machapalli**
 
-If you like this project, consider giving it a ⭐ on GitHub!
+B.Tech – Computer Science and Engineering (AI & Data Science)  
+SASTRA Deemed University
+
+- GitHub: [BhavanaMachapalli](https://github.com/BhavanaMachapalli)
+- Project Repository: [PrepMate](https://github.com/BhavanaMachapalli/prepmate)
+
+---
+
+*PrepMate is a personal project developed to strengthen full-stack development skills and explore practical solutions for interview preparation.*
